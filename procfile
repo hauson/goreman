@@ -1,0 +1,3 @@
+hello1: ./loop.sh 
+hello2: ./loop.sh
+hello3: ./loop.sh

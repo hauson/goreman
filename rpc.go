@@ -162,6 +162,7 @@ func run(cmd string, args []string, serverPort uint) error {
 	return errors.New("unknown command")
 }
 
+// 如何调用这个rpc  net/rpc 的使用方法
 // start rpc server.
 func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uint) error {
 	gm := &Goreman{
@@ -200,6 +201,8 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		wg.Wait()
 		done <- struct{}{}
 	}()
+
+	//两个信号源
 	select {
 	case <-done:
 		return nil

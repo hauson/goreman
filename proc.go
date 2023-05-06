@@ -50,7 +50,7 @@ func spawnProc(name string, errCh chan<- error) {
 	fmt.Fprintf(logger, "Terminating %s\n", name)
 }
 
-// Stop the specified proc, issuing os.Kill if it does not terminate within 10
+// Stop the specified[指定的] proc, issuing os.Kill if it does not terminate within 10
 // seconds. If signal is nil, os.Interrupt is used.
 func stopProc(name string, signal os.Signal) error {
 	if signal == nil {

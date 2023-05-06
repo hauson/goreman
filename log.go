@@ -19,6 +19,7 @@ type clogger struct {
 	buffers buffers       // partial lines awaiting printing
 }
 
+
 var colors = []int{
 	32, // green
 	36, // cyan
@@ -117,7 +118,6 @@ func (l *clogger) writeLines() {
 			tick = nil
 		}
 	}
-
 }
 
 // write handler of logger.

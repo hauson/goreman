@@ -264,6 +264,7 @@ func start(ctx context.Context, sig <-chan os.Signal, cfg *config) error {
 		mu.Unlock()
 	}
 	godotenv.Load()
+
 	rpcChan := make(chan *rpcMessage, 10)
 	if *startRPCServer {
 		go startServer(ctx, rpcChan, cfg.Port)
@@ -275,6 +276,10 @@ func start(ctx context.Context, sig <-chan os.Signal, cfg *config) error {
 func showVersion() {
 	fmt.Fprintf(os.Stdout, "%s\n", version)
 	os.Exit(0)
+}
+
+func init() {
+	os.Args = append(os.Args, "export", "upstart", "./a")
 }
 
 func main() {
